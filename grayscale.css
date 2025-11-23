@@ -76,55 +76,55 @@ h1 {
 }
 
 #jogo {
-    background-image: url(/Cenários/0.\ início.png);
+    background-image: url(Cenários/0.\ início.png);
 }
 
 #cidade {
-    background-image: url(/Cenários/1.\ Cidade.png);
+    background-image: url(Cenários/1.\ Cidade.png);
 }
 
 #floresta {
-    background-image: url(/Cenários/2.\ Floresta.png);
+    background-image: url(Cenários/2.\ Floresta.png);
 }
 
 #deserto {
-    background-image: url(/Cenários/4.\ Deserto.png);
+    background-image: url(Cenários/4.\ Deserto.png);
 }
 
 #montanha {
-    background-image: url(/Cenários/6.\ Montanha.png);
+    background-image: url(Cenários/6.\ Montanha.png);
 }
 
 #praia {
-    background-image: url(/Cenários/8.\ Mar.png);
+    background-image: url(Cenários/8.\ Mar.png);
 }
 
 #casaassombrada {
-    background-image: url(/Cenários/10.\ Casa\ Assombrada.png);
+    background-image: url(Cenários/10.\ Casa\ Assombrada.png);
 }
 
 #lendarios {
-    background-image: url(/Cenários/10.\ Casa\ Assombrada.png);
+    background-image: url(Cenários/10.\ Casa\ Assombrada.png);
 }
 
 #florestadeserto {
-    background-image: url(/Cenários/3.\ Floresta\ trans.\ para\ Deserto.png);
+    background-image: url(Cenários/3.\ Floresta\ trans.\ para\ Deserto.png);
 }
 
 #desertomontanha {
-    background-image: url(/Cenários/5.\ Deserto\ trans.\ para\ Montanha.png);
+    background-image: url(Cenários/5.\ Deserto\ trans.\ para\ Montanha.png);
 }
 
 #montanhapraia {
-    background-image: url(/Cenários/7.\ Montanha\ trans.\ para\ Mar.png);
+    background-image: url(Cenários/7.\ Montanha\ trans.\ para\ Mar.png);
 }
 
 #praiacasa {
-    background-image: url(/Cenários/9.\ Mar\ trans.\ para\ Casa\ Assombrada.png);
+    background-image: url(Cenários/9.\ Mar\ trans.\ para\ Casa\ Assombrada.png);
 }
 
 #fimjogo {
-    background-image: url(/Cenários/11.\ final.png);
+    background-image: url(Cenários/11.\ final.png);
 }
 
 .botaojogar {
