@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="grayscale.css">
+    <link rel="shortcut icon" href="pokemons/pokebola.png" type="image/x-icon">
+    <title>Pokémon Doce</title>
+</head>
+
+<body>
+    <!-- ---------------------------------------------------------------CONTATOS------------------------------------------------------------------- -->
+    <div id="contatos" style="display: none;">
+        <h1 id="tt-ctt" class="locais tistulo">Créditos</h1>
+        <div id="divs-ctt">
+            <div class="div-devs" id="pedro">
+                <img class="devs-img" src="devs/pedro.jpg" alt="Pedro">
+                <h2>Pedro Otávio</h2>
+                <h3>Contatos</h3>
+                <p>
+                    Whatsapp: +55 51 8016-8096<br>
+                    Email: 2024311510@aluno.canoas.ifrs.edu.br<br>
+                    Instagram: @zolppedro
+                </p>
+                <h3>Créditos:</h3>
+                <p>
+                    - Direção de Arte<br>
+                    - Sonoplasta<br>
+                    - Cenários
+                </p>
+            </div>
+            <div class="div-devs" id="hiago">
+                <img class="devs-img" src="devs/hiago.jpg" alt="Hiago">
+                <h2>Hiago Tonel</h2>
+                <h3>Contatos</h3>
+                <p>
+                    Whatsapp: +55 51 9936-7990<br>
+                    Email: 2024301783@aluno.canoas.ifrs.edu.br<br>
+                    Instagram: @noxious616
+                </p>
+                <h3>Créditos:</h3>
+                <p>
+                    - Criação do Minigame<br>
+                    - Criação da Loja<br>
+                    - Criação do Perfil<br>
+                    - Criação dos items
+                </p>
+            </div>
+            <div class="div-devs" id="tedesco">
+                <img class="devs-img" src="devs/tedesco.jpg" alt="Tedesco">
+                <h2>Eduardo Tedesco</h2>
+                <h3>Contatos</h3>
+                <p>
+                    Whatsapp: +55 51 9809-1119<br>
+                    Email: 2024301685@aluno.canoas.ifrs.edu.br<br>
+                    Instagram: @dutedesco_
+                </p>
+                <h3>Créditos:</h3>
+                <p>
+                    - Criação dos Pokémons<br>
+                    - Roteirista<br>
+                    - Finais<br>
+                    - Diretor de Equipe
+                </p>
+            </div>
+        </div>
+        <div class="botoes">
+            <button class="botao" id="btn-ctt" onclick="goTo('perfil')">Voltar para o perfil</button>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------------HISTÓRICO------------------------------------------------------------------- -->
+    <div id="historico" style="display: none;">
+        <h1 id="tt-hist" class="locais tistulo">Histórico</h1>
+        <div id="hist-div">
+            <p id="hist-p"></p>
+        </div>
+        <div class="botoes">
+            <button class="botao" id="btn-hist" onclick="goTo('perfil')">Voltar para o perfil</button>
+        </div>
+    </div>
+    <!-- ----------------------------------------------------------POP-UPS/DIVS-FIXAS-------------------------------------------------------------- -->
+    <div id="bloqueio" class="fundo-pop" style="display: none;"></div>
+    <div id="usar" class="fundo-pop" style="display: none;"></div>
+    <div id="barralateral" class="escondido"></div>
+    <div id="interface"></div>
+    <!-- -----------------------------------------------------------INVENTÁRIO-FRUTAS-------------------------------------------------------------- -->
+    <div id="inventario-fruta" style="display: none;">
+        <div>
+            <h1 id="inv-fruta-h1" class="locais">Frutas</h1>
+        </div>
+        <div>
+            <div>
+                <button type="button" onclick="div_usar(5)" class="item2" id="fruta-5"><img class="img-inv2"
+                        src="Items_loja/item5.webp" alt="mago berry"></button>
+                <button type="button" onclick="div_usar(6)" class="item2" id="fruta-6"><img class="img-inv2"
+                        src="Items_loja/item6.webp" alt="cheri berry"></button>
+            </div>
+            <div>
+                <button type="button" onclick="div_usar(7)" class="item2" id="fruta-7"><img class="img-inv2"
+                        src="Items_loja/item7.webp" alt="pecha berry"></button>
+                <button type="button" onclick="div_usar(8)" class="item2" id="fruta-8"><img class="img-inv2"
+                        src="Items_loja/item8.webp" alt="chesto berry"></button>
+            </div>
+            <div>
+                <button type="button" onclick="div_usar(9)" class="item2" id="fruta-9"><img class="img-inv2"
+                        src="Items_loja/item9.webp" alt="pinap berry"></button>
+                <button type="button" onclick="div_usar(10)" class="item2" id="fruta-10"><img class="img-inv2"
+                        src="Items_loja/item10.webp" alt="leppa berry"></button>
+            </div>
+            <div>
+                <button type="button" onclick="div_usar(11)" class="item2" id="fruta-11"><img class="img-inv2"
+                        src="Items_loja/item11.webp" alt="nanab berry"></button>
+                <button type="button" onclick="div_usar(12)" class="item2" id="fruta-12"><img class="img-inv2"
+                        src="Items_loja/item12.webp" alt="oran berry"></button>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="botao" onclick="apagar('usar'),apagar('inventario-fruta')">VOLTAR</button>
+        </div>
+    </div>
+    <!-- -----------------------------------------------------------INVENTÁRIO-POKEBOLAS-------------------------------------------------------------- -->
+    <div id="inventario-pokebola" style="display: none;">
+        <div>
+            <h1 id="inv-pokebola-h1" class="locais">Pokebolas</h1>
+        </div>
+        <div>
+            <div>
+                <button type="button" onclick="div_usar(1)" class="item2" id="pokebola-1"><img class="img-inv2"
+                        src="Items_loja/item1.webp" alt="Pokebola"></button>
+                <button type="button" onclick="div_usar(2)" class="item2" id="pokebola-2"><img class="img-inv2"
+                        src="Items_loja/item2.webp" alt="Pokebola Boa"></button>
+            </div>
+            <div>
+                <button type="button" onclick="div_usar(3)" class="item2" id="pokebola-3"><img class="img-inv2"
+                        src="Items_loja/item3.webp" alt="Pokebola Ultra"></button>
+                <button type="button" onclick="div_usar(4)" class="item2" id="pokebola-4"><img class="img-inv2"
+                        src="Items_loja/item4.webp" alt="Pokebola Mestra"></button>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="botao" onclick="apagar('usar'),apagar('inventario-pokebola')">VOLTAR</button>
+        </div>
+    </div>
+    <div id="info-user">
+        <div>Dinheiro: <span id="dinheiro">1000</span>R$</div>
+        <button onclick="goTo('perfil'), tirarbarralateral()" id="bt-perfil" class="btn-start botao">Perfil</button>
+    </div>
+    <!-- -----------------------------------------------------------INICIO DO JOGO-------------------------------------------------------------------- -->
+    <div id="jogo">
+        <div id="interfaceinicio"></div>
+        <h1 class="locais">Início</h1>
+        <div id="fundo_inicio" class="fundo-pop">
+            <div class="info-pop" id="info_inicio">
+                <h1 id="h3_bv" class="locais mnh1">Seja bem vindo ao jogo<br> "Pokémon doce"</h1>
+                <p>Como jogar:<br><br>
+                    -Você será um treinador pokémon novato que percorre diferentes lugares em busca de conquistar
+                    pokémons com comida para se tornarem seus amigos.
+                    <br><br>-Para cada pokémon, você pode dialogar de 3 formas diferentes, recrutando-os para a sua
+                    equipe.<br><br>-Para comprar comidas (berries), você deve jogar o minigame "Quem é esse pokémon?!",
+                    conquistando moedas que podem ser
+                    gastas em berries e pokebolas na loja<br><br>
+                </p>
+                <p><strong>Boa Sorte!!!</strong></p>
+                <button type="button" class="botao" onclick="login()">Fazer login</button>
+            </div>
+        </div>
+        <div class="botaojogar">
+            <button onclick="goTo('minigame')" class="btn-start botao">Minigame</button>
+            <button onclick="goTo('cidade')" class="btn-start botao">Explorar</button>
+            <button onclick="goTo('loja')" class="btn-start botao">Loja</button>
+        </div>
+    </div>
+    <!-- --------------------------------------------------------------MINIGAME---------------------------------------------------------------------- -->
+    <div id="minigame">
+        <div id="interfaceinicio"></div>
+        <div id="bemvindo-minigame" class="fundo-pop">
+            <div class="info-pop">
+                <h1 class="locais mnh1">Seja bem vindo ao minigame<br> "Quem é esse Pokémon?!"</h1>
+                <p id="txt-mn">Como jogar:<br><br>-Você vai receber um pokemon e terá
+                    que acertar o nome do pokemon.<br><br>-Se acertar, você recebe um premio de 150R$ que dobra a cada
+                    pokemon que
+                    acertar depois.<br><br>-Mas, caso erre, perde tudo.<br><br>-Por isso, sempre que acertar o nome de
+                    um pokémon,
+                    você pode retirar o dinheiro ou ir para a proxima rodada para aumentar o prêmio.</p>
+                <p><strong>Boa Sorte!!!</strong></p>
+                <button type="button" class="botao" onclick="apagar('bemvindo-minigame'), rand_pk()">Começar</button>
+            </div>
+        </div>
+        <div id="continuar-minigame" class="fundo-pop">
+            <div id="cn-mn" class="info-pop">
+                <h1 class="locais mnh1">Deseja Continuar?</h1><br>
+                <span>Prêmio: <span id="pontos_saque">0</span> R$</span><br><br><br>
+                <div>
+                    <button type="button" class="botao" onclick="apagar('continuar-minigame')">Continuar</button>
+                    <button type="button" class="botao" onclick="sacar('continuar-minigame')">Sacar dinheiro</button>
+                </div>
+            </div>
+        </div>
+        <div id="pk_pt">
+            <div id="poke-mn">
+                <h1 id="tt-minigame" class="locais tistulo">Quem é esse pokemon!?</h1>
+                <img src="pokemons/machamp.png" alt="machamp" id="img-pk-mn">
+            </div>
+        </div>
+        <div id="input-minigame">
+            <div id="pts-minigame"><span>Prêmio: <span id="pontos">0</span> R$</span></div>
+            <input id="input-resposta" type="text" placeholder="Quem é esse pokemon?!">
+            <button type="button" class="botao" id="btn-advinha" onclick="advinhar()">Advinhar</button>
+        </div>
+        <div id="botoes-minigame" class="botoes">
+            <button class="botao" id="btn-minigame" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </div>
+    <!-- -----------------------------------------------------------LOJA-------------------------------------------------------------------------- -->
+    <div id="loja">
+        <div id="interfaceinicio"></div>
+        <h1 id="tt-loja" class="locais tistulo">Loja Pokémon</h1>
+        <h1 class="locais tistulo">Bem vindo a loja!</h1>
+        <div id="info_item_loja">
+            <div id="caixa-loja">
+                <img class="img-item" src="Items_loja/item1.webp" alt="item">
+            </div>
+            <div id="descricao-loja">
+                <h2><strong>Nome: </strong>Pokebola</h2>
+                <h3><strong>Descrição: </strong>Uma pokebola comum, sem nenhum fator especial, que nem você.</h3>
+                <p><strong>Multiplicador: </strong>1x</p>
+                <p><strong>Preço: </strong>100 R$</p>
+            </div>
+        </div>
+        <div id="btn-loja-compra">
+            <button class="botao" type="button" onclick="comprar(1)">Comprar</button>
+        </div>
+        <div id="botoes-loja">
+            <button class="botao" type="button" onclick="troca_esquerda()"> <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="botao" type="button" onclick="troca_direita()"> <i class="fa-solid fa-arrow-right"></i></i>
+            </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </div>
+    <!-- -------------------------------------------------------------PERFIL----------------------------------------------------------------------- -->
+    <div id="perfil">
+        <div id="interfaceinicio"></div>
+        <div id="titulo-perfil">
+            <h1 id="nome_perfil" class="locais tistulo">Perfil</h1>
+        </div>
+        <div id="coisas-perfil">
+            <div id="fundo-inventario">
+
+                <div id="inventario">
+                    <div>
+                        <h1 id="invh1" class="locais">Inventário</h1>
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button" onclick="mostra_info(1)" class="item" id="item-1"><img class="img-inv"
+                                    src="Items_loja/item1.webp" alt="pokebola"></button>
+                            <button type="button" onclick="mostra_info(2)" class="item" id="item-2"><img class="img-inv"
+                                    src="Items_loja/item2.webp" alt="pokebola boa"></button>
+                            <button type="button" onclick="mostra_info(3)" class="item" id="item-3"><img class="img-inv"
+                                    src="Items_loja/item3.webp" alt="pokebola ultra"></button>
+                        </div>
+                        <div>
+                            <button type="button" onclick="mostra_info(4)" class="item" id="item-4"><img class="img-inv"
+                                    src="Items_loja/item4.webp" alt="pokebola mestra"></button>
+                            <button type="button" onclick="mostra_info(5)" class="item" id="item-5"><img class="img-inv"
+                                    src="Items_loja/item5.webp" alt="mago berry"></button>
+                            <button type="button" onclick="mostra_info(6)" class="item" id="item-6"><img class="img-inv"
+                                    src="Items_loja/item6.webp" alt="cheri berry"></button>
+                        </div>
+                        <div>
+                            <button type="button" onclick="mostra_info(7)" class="item" id="item-7"><img class="img-inv"
+                                    src="Items_loja/item7.webp" alt="pecha berry"></button>
+                            <button type="button" onclick="mostra_info(8)" class="item" id="item-8"><img class="img-inv"
+                                    src="Items_loja/item8.webp" alt="chesto berry"></button>
+                            <button type="button" onclick="mostra_info(9)" class="item" id="item-9"><img class="img-inv"
+                                    src="Items_loja/item9.webp" alt="pinap berry"></button>
+                        </div>
+                        <div>
+                            <button type="button" onclick="mostra_info(10)" class="item" id="item-10"><img
+                                    class="img-inv" src="Items_loja/item10.webp" alt="leppa berry"></button>
+                            <button type="button" onclick="mostra_info(11)" class="item" id="item-11"><img
+                                    class="img-inv" src="Items_loja/item11.webp" alt="nanab berry"></button>
+                            <button type="button" onclick="mostra_info(12)" class="item" id="item-12"><img
+                                    class="img-inv" src="Items_loja/item12.webp" alt="oran berry"></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="info">
+
+                </div>
+            </div>
+            <div id="skins">
+                <div id="conteudo_skin">
+                    <h1 id="h1_skin" class="locais tistulo">Escolha sua skin:<br><br>Ash</h1>
+                    <img id="img_skins" src="personagens/Ash.png" alt="Ash">
+                </div>
+                <div id="btn_skins">
+                    <button class="botao" type="button" onclick="troca_esquerda_skin()"> <i
+                            class="fa-solid fa-arrow-left"></i> </button>
+                    <button id="skin_select" class="botao" type="button" onclick="troca_skin()"> Escolher </button>
+                    <button class="botao" type="button" onclick="troca_direita_skin()"> <i
+                            class="fa-solid fa-arrow-right"></i> </button>
+                </div>
+            </div>
+        </div>
+        <div class="botoes">
+            <button class="botao" id="btn-ctt-pf" onclick="goTo('contatos')">Contato dos Desenvolvedores</button>
+            <button class="botao" id="btn-hist-pf" onclick="goTo('historico')">Historico</button>
+            <button class="botao" id="btn-perfil" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </div>
+    <!-- -------------------------------------------------------------CIDADE------------------------------------------------------------------------ -->
+    <section id="cidade">
+        <h1 class="locais">Cidade</h1>
+        <div class="pokemon" id="pokemon-machamp">
+            <img src="pokemons/machamp.png" alt="Machamp">
+        </div>
+        <div class="status" id="status-machamp"> </div>
+        <div class="caixadialogo" id="frases-machamp"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-machamp" onclick="iniciarDialogo(machamp)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-machamp" onclick="goTo('floresta')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------FLORESTA----------------------------------------------------------------------- -->
+    <section id="floresta">
+        <h1 class="locais">Floresta</h1>
+        <div class="pokemon" id="pokemon-gardevoir">
+            <img src="pokemons/gardevoir.png" alt="Gardevoir">
+        </div>
+        <div class="status" id="status-gardevoir"> </div>
+        <div class="caixadialogo" id="frases-gardevoir"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-gardevoir" onclick="iniciarDialogo(gardevoir)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-gardevoir" onclick="goTo('florestadeserto')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------FLORESTA-DESERTO-------------------------------------------------------------------- -->
+    <section id="florestadeserto">
+        <h1 class="locais">Floresta para deserto</h1>
+        <div class="pokemon" id="pokemon-butterfree">
+            <img src="pokemons/butterfree.png" alt="Butterfree">
+        </div>
+        <div class="status" id="status-butterfree"> </div>
+        <div class="caixadialogo" id="frases-butterfree"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-butterfree" onclick="iniciarDialogo(butterfree)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-butterfree" onclick="goTo('deserto')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- ---------------------------------------------------------------DESERTO------------------------------------------------------------------------ -->
+    <section id="deserto">
+        <h1 class="locais">Deserto</h1>
+        <div class="pokemon" id="pokemon-charizard">
+            <img src="pokemons/charizard.png" alt="Charizard">
+        </div>
+        <div class="status" id="status-charizard"> </div>
+        <div class="caixadialogo" id="frases-charizard"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-charizard" onclick="iniciarDialogo(charizard)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-charizard" onclick="goTo('desertomontanha')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------DESERTO-MONTANHA-------------------------------------------------------------------- -->
+    <section id="desertomontanha">
+        <h1 class="locais">Deserto para montanha</h1>
+        <div class="pokemon" id="pokemon-garchomp">
+            <img src="pokemons/garchomp.png" alt="Garchomp">
+        </div>
+        <div class="status" id="status-garchomp"> </div>
+        <div class="caixadialogo" id="frases-garchomp"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-garchomp" onclick="iniciarDialogo(garchomp)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-garchomp" onclick="goTo('montanha')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- ---------------------------------------------------------------MONTANHA---------------------------------------------------------------------- -->
+    <section id="montanha">
+        <h1 class="locais">Montanha</h1>
+        <div class="pokemon" id="pokemon-tyranitar">
+            <img src="pokemons/tyranitar.png" alt="Tyranitar">
+        </div>
+        <div class="status" id="status-tyranitar"> </div>
+        <div class="caixadialogo" id="frases-tyranitar"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-tyranitar" onclick="iniciarDialogo(tyranitar)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-tyranitar" onclick="goTo('montanhapraia')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------MONTANHA-PRAIA-------------------------------------------------------------------- -->
+    <section id="montanhapraia">
+        <h1 class="locais">Montanha para praia</h1>
+        <div class="pokemon" id="pokemon-krookodile">
+            <img src="pokemons/krookodile.png" alt="Krookodile">
+        </div>
+        <div class="status" id="status-krookodile"> </div>
+        <div class="caixadialogo" id="frases-krookodile"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-krookodile" onclick="iniciarDialogo(krookodile)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-krookodile" onclick="goTo('praia')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- ---------------------------------------------------------------PRAIA------------------------------------------------------------------------ -->
+    <section id="praia">
+        <h1 class="locais">Praia</h1>
+        <div class="pokemon" id="pokemon-gyarados">
+            <img src="pokemons/gyarados.png" alt="Gyarados">
+        </div>
+        <div class="status" id="status-gyarados"> </div>
+        <div class="caixadialogo" id="frases-gyarados"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-gyarados" onclick="iniciarDialogo(gyarados)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-gyarados" onclick="goTo('praiacasa')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------PRAIA-CASA---------------------------------------------------------------------- -->
+    <section id="praiacasa">
+        <h1 class="locais">Praia para casa assombrada</h1>
+        <div class="pokemon" id="pokemon-swampert">
+            <img src="pokemons/swampert.png" alt="Swampert">
+        </div>
+        <div class="status" id="status-swampert"> </div>
+        <div class="caixadialogo" id="frases-swampert"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-swampert" onclick="iniciarDialogo(swampert)">Conversar</button>
+            <button class="bota botaoavancar" id="avancar-swampert" onclick="goTo('casaassombrada')"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- ---------------------------------------------------------CASA-ASSOMBRADA------------------------------------------------------------------ -->
+    <section id="casaassombrada">
+        <h1 class="locais">Casa Assombrada</h1>
+        <div class="pokemon" id="pokemon-gengar">
+            <img src="pokemons/gengar.png" alt="Gengar">
+        </div>
+        <div class="status" id="status-gengar"> </div>
+        <div class="caixadialogo" id="frases-gengar"> </div>
+        <div class="botoes">
+            <button class="botao" id="btn-gengar" onclick="iniciarDialogo(gengar)">Conversar</button>
+            <button class="botao botaoavancar" id="avancar-gengar" onclick="goTo('fimjogo'), tirarperfil()"> <i
+                    class="fa-solid fa-arrow-up"></i> </button>
+            <button class="botao" onclick="goTo('jogo')">Voltar para o início</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------FINAL-JOGO--------------------------------------------------------------------- -->
+    <section id="fimjogo">
+        <h1 class="locais">Parabéns, você capturou todos os pokemóns!</h1>
+        <div id="grupo">
+            <img src="pokemons/machamp.png" alt="Machamp">
+            <img src="pokemons/gyarados.png" alt="Gyarados">
+            <img src="pokemons/gardevoir.png" alt="Gardevoir">
+            <img src="pokemons/butterfree.png" alt="Butterfree">
+            <img src="pokemons/charizard.png" alt="Charizard">
+            <img src="pokemons/garchomp.png" alt="Garchomp">
+            <img src="pokemons/tyranitar.png" alt="Tyranitar">
+            <img src="pokemons/krookodile.png" alt="Krookodile">
+            <img src="pokemons/swampert.png" alt="Swampert">
+            <img src="pokemons/gengar.png" alt="Gengar">
+        </div>
+        <div class="botaoescolher">
+            <button class="botao" onclick="goTo('escolher'), tirarperfil(), adicionaesc()">Escolher o seu
+                companheiro</button>
+        </div>
+    </section>
+    <!-- -----------------------------------------------------------ESCOLHA-FINAL--------------------------------------------------------------------- -->
+    <section id="escolher">
+        <h1 class="locais">Escolha seu pokémon</h1>
+        <div class="pokemonescolher">
+            <img id="pokemon-escolhido" src="pokemons/machamp.png" alt="Machamp">
+        </div>
+
+        <div id="pk-escolhido" class="fundo-pop" style="display: none;">
+        </div>
+        <div class="botoesescolher">
+            <button class="botao" onclick="esquerda()"><i class="fa-solid fa-arrow-left"></i> </button>
+            <button class="botao" onclick="direita()"><i class="fa-solid fa-arrow-right"></i> </button>
+            <button class="botao" onclick="escolha();">Eu escolho você!</button>
+        </div>
+
+    </section>
+    <!-- -----------------------------------------------------------JAVASCRIPT--------------------------------------------------------------------- -->
+    <script src="objetos.js"></script>
+    <script>
+        function goTo(cena) {
+            historico(personagem.nome + ' foi para o cenário: ' + cena);
+            document.getElementById("jogo").style.display = "none";
+            document.getElementById("cidade").style.display = "none";
+            document.getElementById("floresta").style.display = "none";
+            document.getElementById("deserto").style.display = "none";
+            document.getElementById("montanha").style.display = "none";
+            document.getElementById("praia").style.display = "none";
+            document.getElementById("casaassombrada").style.display = "none";
+            document.getElementById("florestadeserto").style.display = "none";
+            document.getElementById("desertomontanha").style.display = "none";
+            document.getElementById("montanhapraia").style.display = "none";
+            document.getElementById("praiacasa").style.display = "none";
+            document.getElementById("loja").style.display = "none";
+            document.getElementById("fimjogo").style.display = "none";
+            document.getElementById("escolher").style.display = "none";
+            document.getElementById("perfil").style.display = "none";
+            document.getElementById("minigame").style.display = "none";
+            document.getElementById("bt-perfil").style.display = "block";
+            document.getElementById("info-user").style.display = "flex";
+            document.getElementById("historico").style.display = "none";
+            document.getElementById("contatos").style.display = "none";
+            document.getElementById(cena).style.display = "flex";
+            if (cena == "cidade") {
+                document.getElementById('barralateral').style.display = "flex";
+            }
+            else if (cena == "jogo") {
+                document.getElementById('barralateral').style.display = "none";
+            }
+            else if (cena == "perfil" || cena == "historico" || cena == "contatos") {
+                document.getElementById('bt-perfil').style.display = "none";
+            }
+        }
+    </script>
+    <script src="main.js"></script>
+    <script src="skin.js"></script>
+    <script src="funcaopokemon.js"></script>
+    <script src="minigame.js"></script>
+</body>
+
+</html>
