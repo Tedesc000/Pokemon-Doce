@@ -299,6 +299,7 @@ exibirPokemon(gengar, "status-gengar");
 
 // DIALOGO
 
+const estadosDialogo = {};
 
 let historicoDialogo = "";
 let pokemonAtual = null;
@@ -317,12 +318,19 @@ let dialogo = null;
 function iniciarDialogo(pokemon) {
     pokemonAtual = pokemon;
     const id = pokemon.id;
+    if (!estadosDialogo[id]) {
+        estadosDialogo[id] = { 
+            contadores: [0, 0, 0], 
+            caminhoAtual: null, 
+            historicoHTML: "", 
+            faseFinalAtiva: false 
+        };
+    }
     botaoAtual = document.getElementById('btn-' + id);
     pokemonsumir = document.getElementById('pokemon-' + id);
     statusAtual = document.getElementById('status-' + id);
     dialogo = document.getElementById('frases-' + id);
     lateral.style.display = 'none';
-    contadores = [0, 0, 0];
     botaoAtual.style.display = "none";
     dialogo.className = "caixadialogo-inline";
     dialogo.style.visibility = "visible";
@@ -332,7 +340,7 @@ function iniciarDialogo(pokemon) {
 
     historico(personagem.nome + ' iniciou diálogo com o pokémon: ' + pokemonAtual.nome);
 
-    let mensagensHTML = historicoDialogo;
+    let mensagensHTML = (estadosDialogo[id].historicoHTML) || "";
     dialogo.innerHTML = `
         <div id="mensagens">${mensagensHTML}</div>
         <div id="opcoes">
@@ -343,18 +351,46 @@ function iniciarDialogo(pokemon) {
         </div>
     `;
 
+    const estado = estadosDialogo[id];
+
+    const btn_Amg = dialogo.querySelector('#btn_amg');
+    const btn_Irr = dialogo.querySelector('#btn_irr');
+    const btn_Cur = dialogo.querySelector('#btn_cur');
+    if (estado.caminhoAtual !== null) {
+        if (estado.caminhoAtual === 0) {
+            btn_Irr.style.display = 'none'; 
+            btn_Cur.style.display = 'none'; }
+        if (estado.caminhoAtual === 1) {
+            btn_Amg.style.display = 'none'; 
+            btn_Cur.style.display = 'none'; }
+        if (estado.caminhoAtual === 2) {
+            btn_Amg.style.display = 'none'; 
+            btn_Irr.style.display = 'none'; }
+    }
+
+    if (estado.faseFinalAtiva) {
+        const opcoes = dialogo.querySelector('#opcoes');
+        if (pokemonAtual.fome > 0) {
+            opcoes.innerHTML = `
+            <button class="botao" id="btn_frutas" onclick="div_usar_fruta_display()">Frutas</button>
+            <button class="botao" onclick="fecharDialogo('${dialogo.id}', 'btn-${id}')">Fechar</button>
+        `;
+        } else {
+            opcoes.innerHTML = `
+            <button class="botao" id="btn_pokebola" onclick="div_usar_pokebola_display()">Pokébola</button>
+            <button class="botao" onclick="fecharDialogo('${dialogo.id}', 'btn-${id}')">Fechar</button>
+        `;
+        }
+    }
+
 }
 function exibirDialogo(pokemon) {
     document.getElementById('frases-' + pokemon.id).style.visibility = "visible";
 }
-
-
 function avancarpokemon() {
     let avancar = document.getElementById('avancar-' + pokemonAtual.id);
     avancar.style.display = 'flex';
 }
-
-
 
 function fecharDialogo(dialogoId, botaoId) {
     const dialogodiv = document.getElementById(dialogoId);
@@ -362,6 +398,7 @@ function fecharDialogo(dialogoId, botaoId) {
     const mensagensdiv = dialogodiv.querySelector("#mensagens");
     if (mensagensdiv) {
         historicoDialogo = mensagensdiv.innerHTML;
+        estadosDialogo[pokemonAtual.id].historicoHTML = mensagensdiv.innerHTML;
     }
     dialogodiv.style.visibility = "hidden";
     botaodiv.style.display = "flex";
@@ -375,7 +412,9 @@ function escolherCaminho(num, idDialogo, caminho_esc) {
     const mensagens = dialogo.querySelector("#mensagens");
     const statuspokemon = statusAtual;
 
-    let indice = contadores[num];
+    const estado = estadosDialogo[pokemonAtual.id];
+
+    let indice = estado.contadores[num];
     let limite = limites[num];
     let base = num * 3;
     let indiceReal = base + indice;
@@ -395,6 +434,10 @@ function escolherCaminho(num, idDialogo, caminho_esc) {
     else {
         if (btnAmg) btnAmg.style.display = 'none';
         if (btnIrr) btnIrr.style.display = 'none';
+    }
+
+    if (estado.caminhoAtual === null) { 
+        estado.caminhoAtual = num; 
     }
 
 
@@ -425,6 +468,8 @@ function escolherCaminho(num, idDialogo, caminho_esc) {
             <button class="botao" id="btn_frutas" onclick="div_usar_fruta_display()">Frutas</button>
             <button class="botao" onclick="fecharDialogo('${dialogo.id}', 'btn-${pokemonAtual.id}')">Fechar</button>
         `;
+        estado.faseFinalAtiva = true;
+        estado.historicoHTML = mensagens.innerHTML;
     }
     else {
         setTimeout(() => {
@@ -434,7 +479,8 @@ function escolherCaminho(num, idDialogo, caminho_esc) {
 
 
 
-    contadores[num]++;
+    estado.contadores[num]++;
+    estadosDialogo[pokemonAtual.id].historicoHTML = mensagens.innerHTML;
 
 }
 
@@ -566,6 +612,7 @@ function div_usar(id) {
 function usar_fruta(id) {
     const dialogo = document.getElementById('frases-' + pokemonAtual.id);
     const opcoes = dialogo.querySelector("#opcoes");
+    const mensagensEl = dialogo.querySelector('#mensagens');
     let fruta = items[id - 1];
     let saciedade = 0;
     if (fruta[pokemonAtual.preferencia] > 5) {
@@ -606,6 +653,11 @@ function usar_fruta(id) {
         <button class="botao" id="btn_pokebola" onclick="div_usar_pokebola_display()">Pokébola</button>
         <button class="botao" onclick="fecharDialogo('${dialogo.id}', 'btn-${pokemonAtual.id}')">Fechar</button>
         `
+    }
+    const estado = estadosDialogo[pokemonAtual.id];
+    if (estado) {
+        if (pokemonAtual.fome == 0) { estado.faseFinalAtiva = true; }
+        if (mensagensEl) { estado.historicoHTML = mensagensEl.innerHTML; }
     }
 }
 function usar_pokebola(id) {
