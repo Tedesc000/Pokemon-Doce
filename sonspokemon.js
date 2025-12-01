@@ -1,4 +1,3 @@
-// Sons dos pokemons
 const pokemonSounds = {
     machamp: new Audio("sons/machamp.mp3"),
     gardevoir: new Audio("sons/gardevoir.mp3"),
@@ -12,7 +11,6 @@ const pokemonSounds = {
     gengar: new Audio("sons/gengar.mp3")
 };
 
-// Toca o som
 function playPokemonSound(name) {
     const audio = pokemonSounds[name];
     if (audio) {
@@ -21,7 +19,6 @@ function playPokemonSound(name) {
     }
 }
 
-// Associa cada cenário ao seu pokemon
 function onEnterLocation(location) {
 
     const map = {
@@ -40,3 +37,4 @@ function onEnterLocation(location) {
     const pokemonName = map[location];
     if (pokemonName) playPokemonSound(pokemonName);
 }
+
